@@ -7,8 +7,9 @@ package fileencryptionapp;
 /**
  * AES256 encryption and decryption class.
  * 
- * Source: HowToDoInJava. (n.d.). AES 256 Encryption and Decryption in Java. Retrieved from 
- * https://howtodoinjava.com/java/java-security/aes-256-encryption-decryption/
+ * The encryptToFile and decryptFromFile methods in this class are adapted from:
+ * HowToDoInJava. (n.d.). AES 256 Encryption and Decryption in Java. 
+ * Retrieved from https://howtodoinjava.com/java/java-security/aes-256-encryption-decryption/
  */
 
 import javax.crypto.Cipher;

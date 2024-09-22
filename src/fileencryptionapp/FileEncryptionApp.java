@@ -66,15 +66,22 @@ public class FileEncryptionApp {
     private static void encryptFile() {
         System.out.print("Enter the text you want to encrypt: ");
         String content = scanner.nextLine();
+
         System.out.print("Enter your secret key: ");
         String secretKey = scanner.nextLine();
+
         System.out.print("Enter your salt: ");
         String salt = scanner.nextLine();
+
         System.out.print("Enter the output file name (e.g., encryptedData.json): ");
-        String outputFileName = scanner.nextLine();
+        String outputFileName = scanner.nextLine(); // Ensure the file name is captured
+
+        // Debugging output
+        System.out.println("Output file name: " + outputFileName);
 
         try {
             AES256.encryptToFile(content, secretKey, salt, outputFileName);
+//            System.out.println("Encryption successful! Encrypted content written to file: " + outputFileName);
         } catch (Exception e) {
             System.out.println("Error encrypting file: " + e.getMessage());
         }
