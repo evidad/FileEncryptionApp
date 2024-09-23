@@ -13,6 +13,7 @@ import java.util.Scanner;
  *
  * @author errol
  */
+
 public class FileEncryptionApp {
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -28,7 +29,7 @@ public class FileEncryptionApp {
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -47,7 +48,7 @@ public class FileEncryptionApp {
                     System.out.println("Invalid option. Try again.");
             }
         }
-        System.out.println("Exiting the program...");
+        System.out.println("Exiting the program.");
     }
 
     private static void readFile() {
@@ -55,7 +56,7 @@ public class FileEncryptionApp {
         String fileName = scanner.nextLine();
         File file = new File(fileName);
         try {
-            ObjectMapper mapper = new ObjectMapper(); // Jackson ObjectMapper
+            ObjectMapper mapper = new ObjectMapper();
             FileTemplate obj = mapper.readValue(file, FileTemplate.class);
             System.out.println("File content: " + obj.toString());
         } catch (IOException e) {
@@ -74,14 +75,10 @@ public class FileEncryptionApp {
         String salt = scanner.nextLine();
 
         System.out.print("Enter the output file name (e.g., encryptedData.json): ");
-        String outputFileName = scanner.nextLine(); // Ensure the file name is captured
-
-        // Debugging output
-        System.out.println("Output file name: " + outputFileName);
+        String outputFileName = scanner.nextLine();
 
         try {
             AES256.encryptToFile(content, secretKey, salt, outputFileName);
-//            System.out.println("Encryption successful! Encrypted content written to file: " + outputFileName);
         } catch (Exception e) {
             System.out.println("Error encrypting file: " + e.getMessage());
         }

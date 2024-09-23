@@ -13,16 +13,13 @@ public class FileTemplate {
     private String encryptedContent;
     private String salt;
 
-    // Default constructor (required by Jackson)
     public FileTemplate() {}
 
-    // Constructor with parameters
     public FileTemplate(String encryptedContent, String salt) {
         this.encryptedContent = encryptedContent;
         this.salt = salt;
     }
 
-    // Getters and setters
     public String getEncryptedContent() {
         return encryptedContent;
     }
